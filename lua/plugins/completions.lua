@@ -101,7 +101,7 @@ return {
 
         keymap = {
             preset = "default",
-            ["<TAB>"] = { "select_and_accept" },
+            ["<Tab>"] = { "select_and_accept" },
         },
     },
 }
