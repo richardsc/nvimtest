@@ -11,3 +11,4 @@ vim.o.shiftwidth = 4
 vim.g.maplocalleader = ","
 vim.opt.wrap = true
 vim.o.autochdir = true
+vim.o.cursorlineopt = "number,screenline"
