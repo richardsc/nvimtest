@@ -8,3 +8,31 @@ vim.keymap.set("n", "<leader>gg", function()
 end, { noremap = true })
 vim.keymap.set("t", "jj", [[<C-\><C-n>]])
 vim.keymap.set("t", "kk", [[<C-\><C-n>]])
+
+-- Toggle between visual (wrapped line) and logical line navigation
+local visual_mode = false
+function ToggleLineMode()
+    if visual_mode then
+        -- Restore logical navigation
+        vim.keymap.set("n", "j", "j", { noremap = true, silent = true })
+        vim.keymap.set("n", "k", "k", { noremap = true, silent = true })
+        vim.keymap.set("n", "0", "0", { noremap = true, silent = true })
+        vim.keymap.set("n", "$", "$", { noremap = true, silent = true })
+        print("Logical line navigation")
+    else
+        -- Enable visual (screen line) navigation
+        vim.keymap.set("n", "j", "gj", { noremap = true, silent = true })
+        vim.keymap.set("n", "k", "gk", { noremap = true, silent = true })
+        vim.keymap.set("n", "0", "g0", { noremap = true, silent = true })
+        vim.keymap.set("n", "$", "g$", { noremap = true, silent = true })
+        print("Visual line navigation")
+    end
+    visual_mode = not visual_mode
+end
+
+-- Bind to <leader>tl (toggle lines)
+vim.keymap.set("n", "<leader>tl", ToggleLineMode, {
+    noremap = true,
+    silent = true,
+    desc = "Toggle logical/visual line navigation"
+})
