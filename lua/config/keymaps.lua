@@ -14,17 +14,17 @@ local visual_mode = false
 function ToggleLineMode()
     if visual_mode then
         -- Restore logical navigation
-        vim.keymap.set("n", "j", "j", { noremap = true, silent = true })
-        vim.keymap.set("n", "k", "k", { noremap = true, silent = true })
-        vim.keymap.set("n", "0", "0", { noremap = true, silent = true })
-        vim.keymap.set("n", "$", "$", { noremap = true, silent = true })
+        vim.keymap.set({ "n", "v", "o" }, "j", "j", { noremap = true, silent = true })
+        vim.keymap.set({ "n", "v", "o" }, "k", "k", { noremap = true, silent = true })
+        vim.keymap.set({ "n", "v", "o" }, "0", "0", { noremap = true, silent = true })
+        vim.keymap.set({ "n", "v", "o" }, "$", "$", { noremap = true, silent = true })
         print("Logical line navigation")
     else
         -- Enable visual (screen line) navigation
-        vim.keymap.set("n", "j", "gj", { noremap = true, silent = true })
-        vim.keymap.set("n", "k", "gk", { noremap = true, silent = true })
-        vim.keymap.set("n", "0", "g0", { noremap = true, silent = true })
-        vim.keymap.set("n", "$", "g$", { noremap = true, silent = true })
+        vim.keymap.set({ "n", "v", "o" }, "j", "gj", { noremap = true, silent = true })
+        vim.keymap.set({ "n", "v", "o" }, "k", "gk", { noremap = true, silent = true })
+        vim.keymap.set({ "n", "v", "o" }, "0", "g0", { noremap = true, silent = true })
+        vim.keymap.set({ "n", "v", "o" }, "$", "g$", { noremap = true, silent = true })
         print("Visual line navigation")
     end
     visual_mode = not visual_mode
