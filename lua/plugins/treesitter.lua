@@ -1,19 +1,19 @@
-if true then return {} end
-
 return {
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        config = function()
-            local configs = require("nvim-treesitter.configs")
+	{
+		"nvim-treesitter/nvim-treesitter",
+		branch = "main",
+		lazy = false,
+		build = ":TSUpdate",
+		config = function()
+			local langs = { "markdown", "markdown_inline", "r", "rnoweb", "yaml", "latex", "csv" }
+			require("nvim-treesitter").install(langs)
 
-            configs.setup({
-                ensure_installed = { "markdown", "markdown_inline", "r", "rnoweb", "yaml", "latex", "csv" },
-                -- ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html" },
-                sync_install = false,
-                highlight = { enable = true },
-                indent = { enable = true },
-            })
-        end,
-    },
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = langs,
+				callback = function()
+					vim.treesitter.start()
+				end,
+			})
+		end,
+	},
 }
