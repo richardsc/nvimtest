@@ -3,6 +3,7 @@
 return {
     {
         "Vigemus/iron.nvim",
+        ft = { "python", "julia" }, -- activate only for python and julia files
         config = function()
             local iron = require("iron.core")
             iron.setup({
@@ -11,19 +12,19 @@ return {
                     scratch_repl = true,
                     -- Your repl definitions come here
                     repl_definition = {
-                        R = {
-                            -- Can be a table or a function that
-                            -- returns a table (see below)
-                            command = { "radian" },
-                        },
-                        r = {
-                            -- Can be a table or a function that
-                            -- returns a table (see below)
-                            command = { "radian" },
-                        },
-                        quarto = {
-                            command = { "radian" },
-                        },
+                        -- R = {
+                        --     -- Can be a table or a function that
+                        --     -- returns a table (see below)
+                        --     command = { "radian" },
+                        -- },
+                        -- r = {
+                        --     -- Can be a table or a function that
+                        --     -- returns a table (see below)
+                        --     command = { "radian" },
+                        -- },
+                        -- quarto = {
+                        --     command = { "radian" },
+                        -- },
                     },
                     -- How the repl window will be displayed
                     -- See below for more information
