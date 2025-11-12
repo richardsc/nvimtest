@@ -5,11 +5,12 @@ This is based on a starter template for [LazyVim](https://github.com/LazyVim/Laz
 ## cmp-r issues that occurred on 2024-12-12
 
 After a lazyvim update, it started showing errors such as below:
+
 <details>
   <summary>Nvim error output</summary>
 Failed to source `/home/richardsc/.local/share/nvim/lazy/cmp-r/after/plugin/cmp_r.lua`
 
-vim/_editor.lua:0: /home/richardsc/.config/nvim/init.lua..nvim_exec2() called at /home/richardsc/.config/nvim/init.
+vim/\_editor.lua:0: /home/richardsc/.config/nvim/init.lua..nvim_exec2() called at /home/richardsc/.config/nvim/init.
 lua:0../home/richardsc/.local/share/nvim/lazy/cmp-r/after/plugin/cmp_r.lua: Vim(source):E5113: Error while calling
 lua chunk: ...rdsc/.local/share/nvim/lazy/cmp-r/after/plugin/cmp_r.lua:1: module 'cmp' not found:
 ^Ino field package.preload['cmp']
@@ -29,7 +30,7 @@ stack traceback:
 ^I[C]: in function 'require'
 ^I...rdsc/.local/share/nvim/lazy/cmp-r/after/plugin/cmp_r.lua:1: in main chunk
 ^I[C]: in function 'nvim_exec2'
-^Ivim/_editor.lua: in function 'cmd'
+^Ivim/\_editor.lua: in function 'cmd'
 ^I...local/share/nvim/lazy/lazy.nvim/lua/lazy/core/loader.lua:510: in function <...local/share/nvim/lazy/lazy.nvim/
 lua/lazy/core/loader.lua:509>
 ^I[C]: in function 'xpcall'
@@ -43,7 +44,8 @@ lua/lazy/core/loader.lua:509>
 ^I/home/richardsc/.config/nvim/init.lua:2: in main chunk
 
 stacktrace:
-- vim/_editor.lua:0 _in_ **cmd**
+
+- vim/_editor.lua:0 \_in_ **cmd**
 - lua/config/lazy.lua:17
 - init.lua:2
 </details>
@@ -62,12 +64,12 @@ where fzf is now the default "picker" in LazyVim, instead of telescope. In order
 
 ## 2024-12-17: Some stuff I've been learning:
 
-* open a terminal in the root directory with <leader>ft and in the current directory with <leader>fT.
-* open a file browser split with neo-tree in root using <leader>e and in cwd with <leader>E
+- open a terminal in the root directory with <leader>ft and in the current directory with <leader>fT.
+- open a file browser split with neo-tree in root using <leader>e and in cwd with <leader>E
   - to show hidden files in the neo-tree type H
-* open a buffer explorer with <leader>be
-* switch between splits using: Ctrl-j/k/h/l
-* cancel a split with Ctrl-w q.
+- open a buffer explorer with <leader>be
+- switch between splits using: Ctrl-j/k/h/l
+- cancel a split with Ctrl-w q.
 
 ## Fix the markdown line-length warning (i.e. make it go away), from [Dan](github.com/dankelley/nvim.git)
 
@@ -93,16 +95,20 @@ return {
   },
 }
 ```
+
 and then creating the `.markdownlint-cli2.yaml` file as decribed, i.e. with:
+
 ```yaml
 config:
   MD013: false
 ```
+
 had the desired effect!
 
 ## blink.cmp and changing keybindings
 
 I've switched to using the (now default) blink.cmp completion engine, and I've been trying to figure out how to change the keybindings. Currently what I've been using in my configuration for blink is something like the following:
+
 ```{lua}
 return {
     {
@@ -116,6 +122,7 @@ return {
     }
 }
 ```
+
 which is supposed to change the default "select_and_accept" keybinding from <CR> to <TAB>. The problem is that it seems to work somewhat inconsistently, especially on MacOS/iterm2, and I don't know why.
 
 Another source that might be helpful is from [someone's dotfile config](https://github.com/garlicbreadcleric/nvim-config/blob/12460a0a84a533d14e5489dfa2f5d3d8346e7923/lua/features/completion.lua#L5). I don't think I'd want to change the default "up"/"down" navigation keybindings, but apparently this is supposed to work. Perhaps I should just accept the other default of "<c-y>" which seems to be pretty common.
@@ -130,7 +137,7 @@ https://www.youtube.com/watch?v=sBbplGeFffY&t=1s
 
 ## Lazygit
 
-After reading about lazygit in the [LVFAD book](https://lazyvim-ambitious-devs.phillips.codes/), I installed it (using `brew` for both MacOS and WSL Ubuntu), and am really liking it. 
+After reading about lazygit in the [LVFAD book](https://lazyvim-ambitious-devs.phillips.codes/), I installed it (using `brew` for both MacOS and WSL Ubuntu), and am really liking it.
 
 ### lazygit-confirm
 

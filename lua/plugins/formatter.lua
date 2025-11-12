@@ -14,6 +14,9 @@ return {
                     quiet = false,           -- not recommended to change
                     lsp_format = "fallback", -- not recommended to change
                 },
+                formatters_by_ft = {
+                    markdown = { "prettier" },
+                },
             }
             return opts
         end,
