@@ -12,3 +12,4 @@ vim.g.maplocalleader = ","
 vim.opt.wrap = true
 vim.o.autochdir = true
 vim.o.cursorlineopt = "number,screenline"
+vim.o.cursorcolumn = true
