@@ -1,6 +1,7 @@
 return {
     {
         'Kicamon/markdown-table-mode.nvim',
+        ft = { "markdown", "rmd", "quarto" },
         config = function()
             require('markdown-table-mode').setup()
         end
@@ -11,6 +12,7 @@ return {
         -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
         ---@module 'render-markdown'
         ---@type render.md.UserConfig
+        ft = { "markdown", "rmd", "quarto" },
         opts = {},
         config = function()
             require('render-markdown').setup({
