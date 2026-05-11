@@ -7,6 +7,15 @@ return {
         }
     },
     {
+        "danhat1020/silence.nvim",
+        config = function()
+            require("silence").setup({
+                -- options here (see configuration)
+            })
+            -- vim.cmd("colorscheme silence")
+        end,
+    },
+    {
         "folke/tokyonight.nvim",
         lazy = false,
         priority = 1000,
