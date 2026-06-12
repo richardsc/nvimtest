@@ -3,7 +3,8 @@ return {
         "LazyVim/LazyVim",
         opts = {
             -- colorscheme = "catppuccin-frappe",
-            colorscheme = "minispring",
+            -- colorscheme = "minispring",
+            colorscheme = "unokai",
         }
     },
     {
