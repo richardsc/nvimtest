@@ -4,7 +4,8 @@ return {
         opts = {
             -- colorscheme = "catppuccin-frappe",
             -- colorscheme = "minispring",
-            colorscheme = "unokai",
+            -- colorscheme = "unokai",
+            colorscheme = "duskhaven",
         }
     },
     {
@@ -32,5 +33,13 @@ return {
             --     --hl.IlluminatedWordText = { bg = "#ffffff", fg = "#ffffff" }
             -- end,
         },
+    },
+    {
+        "kbraggins/duskhaven.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            vim.cmd.colorscheme("duskhaven")
+        end,
     }
 }
