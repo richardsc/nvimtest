@@ -39,4 +39,8 @@ return {
     --         { "<leader>u", "<cmd>lua require('undotree').toggle()<cr>" },
     --     },
     -- },
+    {
+        "SunnyTamang/select-undo.nvim",
+        opts = {},
+    }
 }
